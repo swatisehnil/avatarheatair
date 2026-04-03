@@ -18,11 +18,9 @@ export default function Footer() {
                 </p>
               </div>
               <div className="col-lg-2 col-md-6">
-                <h5>Office</h5>
+                <h5>Address</h5>
                 <p>
-                  Corporate Office-<br />
-                  175 24th Street, OT-35<br />
-                  London, UK 265
+                 503 Morningside Ave Union Beach NJ 07735
                 </p>
                 <div className="company-email">
                   <a href="mailto:AvatarHeatAir@gmail.com">AvatarHeatAir@gmail.com</a>
@@ -64,7 +62,12 @@ export default function Footer() {
         <div className="container">
           <div className="row justify-content-center align-items-center">
             <div className="col-lg-6 col-md-6 col-sm-12">
-              <p className="copyright-line">© 2026 design by rninfosoft. All rights reserved.</p>
+             <p className="copyright-line">
+  © 2026 design by{" "}
+  <a href="https://rninfosoft.com" target="_blank" rel="noopener noreferrer">
+    rninfosoft
+  </a>. All rights reserved.
+</p>
             </div>
             <div className="col-lg-6 col-md-6 col-xs-12 text-md-end">
               <p className="privacy">Privacy Policy | Terms &amp; Conditions</p>

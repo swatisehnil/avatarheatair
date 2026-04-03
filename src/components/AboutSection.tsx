@@ -55,7 +55,7 @@ export default function AboutSection() {
                   </div>
                 </div>
               </div>
-              <a href="#" className="theme-btn mt-20">Read More</a>
+              <a href="about" className="theme-btn mt-20">Read More</a>
             </div>
           </div>
         </div>

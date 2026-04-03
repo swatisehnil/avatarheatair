@@ -2164,7 +2164,7 @@ input[type=search]::-webkit-search-results-decoration {
 
 /* Header Area  */
 .header-area .navigation {
-  height: 88px;
+  height: 85px;
   position: relative;
   z-index: 9;
   display: flex;
@@ -6258,13 +6258,23 @@ span.form-icon.text-icon:before {
 }
 .logo .navbar-brand img{
 width: 100%;
-    max-width: 180px;
+    max-width: 110px;
 }
-
+.logo img{
+     max-width: 200px;
+    width: 100%;
+    height: 100px;
+}
 
 .header-top-area span i  a{
   margin-right: 10px;
 }
-.logo img{
-  max-width: 220px;
+.copyright-line a {
+  color: #ff6600;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.copyright-line a:hover {
+  text-decoration: underline;
 }
