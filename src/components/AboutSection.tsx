@@ -7,18 +7,18 @@ export default function AboutSection() {
     <div className="about-section gray-bg section-padding pb-150">
       <div className="container">
         <div className="row align-items-center">
-          <div className="col-xl-6 col-lg-6 wow fadeInLeft animated" data-wow-delay="200ms">
+          <div className="col-xl-6 col-lg-6">
             <div className="about-img-wrap">
-              <div className="image-one wow fadeInUp" data-wow-delay=".2s">
-                <Image src="/assets/img/about/about-1-1.jpg" alt="About" width={500} height={400} />
+              <div className="image-one">
+                <Image src="/assets/img/about/about-1-1.jpg" alt="About" width={500} height={400} priority />
               </div>
-              <div className="image-two wow fadeInUp" data-wow-delay=".4s">
-                <Image src="/assets/img/about/about-1-2.jpg" alt="About" width={300} height={250} />
+              <div className="image-two">
+                <Image src="/assets/img/about/about-1-2.jpg" alt="About" width={300} height={250} priority />
               </div>
             </div>
           </div>
 
-          <div className="col-xl-6 col-lg-6 wow fadeInUp animated" data-wow-delay="400ms">
+          <div className="col-xl-6 col-lg-6">
             <div className="about-content-wrap">
               <div className="section-title">
                 <h6>About Us</h6>

@@ -2,7 +2,8 @@
 
 import { useEffect } from "react";
 
-const scripts = [
+// Plugins can load in parallel (all depend only on jQuery which loads first)
+const plugins = [
   "/assets/js/popper.min.js",
   "/assets/js/bootstrap.min.js",
   "/assets/js/wow.min.js",
@@ -21,7 +22,6 @@ const scripts = [
   "/assets/js/ScrollTrigger.min.js",
   "/assets/js/SplitText.min.js",
   "/assets/js/backToTop.js",
-  "/assets/js/main.js",
 ];
 
 function loadScript(src: string): Promise<void> {
@@ -44,11 +44,10 @@ function loadScript(src: string): Promise<void> {
 
 export default function ScriptLoader() {
   useEffect(() => {
-    // Load all scripts sequentially so plugins are ready before main.js
+    // Load all plugins in parallel, then load main.js last
     (async () => {
-      for (const src of scripts) {
-        await loadScript(src);
-      }
+      await Promise.all(plugins.map(loadScript));
+      await loadScript("/assets/js/main.js");
     })();
   }, []);
 

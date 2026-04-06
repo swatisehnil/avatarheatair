@@ -34,16 +34,22 @@ export default function HeroSlider() {
       }
     };
 
-    // Wait for scripts to load
-    const timer = setTimeout(init, 1000);
-    return () => clearTimeout(timer);
+    // Poll until jQuery and owlCarousel are ready
+    const interval = setInterval(() => {
+      if (typeof window !== "undefined" && (window as any).jQuery?.fn?.owlCarousel) {
+        clearInterval(interval);
+        init();
+      }
+    }, 100);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div id="home-1" className="homepage-slides owl-carousel">
+    <div id="home-1" className="homepage-slides owl-carousel" style={{ display: "block" }}>
       <div
         className="single-slide-item d-flex align-items-center"
         data-background="/assets/img/slider/slider-1.jpg"
+        style={{ backgroundImage: "url('/assets/img/slider/slider-1.jpg')" }}
       >
         <div className="overlay-5"></div>
         <div className="hero-area-content">
