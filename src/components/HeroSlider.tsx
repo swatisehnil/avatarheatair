@@ -67,7 +67,7 @@ export default function HeroSlider() {
                   repair, and maintenance to keep your home and business
                   comfortable all year round.
                 </p>
-                <a href="#" className="theme-btn mt-40">
+                <a href="contact" className="theme-btn mt-40">
                   Get a Free Quote
                 </a>
               </div>

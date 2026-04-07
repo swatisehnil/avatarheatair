@@ -34,7 +34,7 @@ export default function ProjectSection() {
                     alt={project.title}
                     width={600}
                     height={400}
-                    style={{ width: "100%", height: "auto" }}
+                    style={{ width: "100%" }}
                   />
                   <div className="project-details">
                     <h4>{project.title}</h4>

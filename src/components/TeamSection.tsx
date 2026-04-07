@@ -54,9 +54,7 @@ export default function TeamSection() {
                 </h2>
               </div>
               <p>
-                Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua. Ut enim ad minim. Adipiscing elit, sed do eiusmod tempor incididunt
-                ut labore.
+               At Avatar Home Repair, our team consists of highly skilled and experienced professionals dedicated to delivering top-quality home services. 
               </p>
               <a href="#" className="theme-btn mt-30">See More</a>
             </div>

@@ -35,7 +35,7 @@ export default function Header() {
                   <i className="fal fa-search"></i>
                 </div>
                 {/* Header Button */}
-                <a href="#" className="theme-btn d-none d-lg-inline-block">Request a Quote</a>
+                <a href="contact" className="theme-btn d-none d-lg-inline-block">Request a Quote</a>
               </div>
 
               {/* Mobile Menu */}

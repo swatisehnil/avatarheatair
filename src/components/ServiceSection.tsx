@@ -38,7 +38,7 @@ export default function ServiceSection() {
                 </div>
                 <h4>{service.title}</h4>
                 <p>{service.desc}</p>
-                <a href="#" className="read_more_link">
+                <a href="service" className="read_more_link">
                   <span className="link_text">Read More</span>
                   <span className="link_icon">
                     <i className="las la-arrow-right"></i>
