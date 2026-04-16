@@ -23,7 +23,14 @@ export default function Header() {
                 <ul>
                   <li className="active"><a className="navlink" href="/">Home</a></li>
                   <li><a className="navlink" href="/about">About</a></li>
-                  <li><a className="navlink" href="/services">Services</a></li>
+                  <li>
+                    <a className="navlink" href="/services">Services</a>
+                    <ul className="sub-menu">
+                      <li><a href="/services/heating-system">Heating System</a></li>
+                      <li><a href="/services/air-conditioning">Air Conditioning</a></li>
+                      <li><a href="/services/plumbing">Plumbing</a></li>
+                    </ul>
+                  </li>
                   <li><a className="navlink" href="/blog">Blog</a></li>
                   <li><a className="navlink" href="/contact">Contact</a></li>
                 </ul>
@@ -52,7 +59,14 @@ export default function Header() {
                       <ul className="metismenu" id="mobile-menu">
                         <li><a href="/">Home</a></li>
                         <li><a href="/about">About</a></li>
-                        <li><a href="/services">Services</a></li>
+                        <li>
+                          <a className="has-arrow" href="/services">Services</a>
+                          <ul className="sub-menu">
+                            <li><a href="/services/heating-system">Heating System</a></li>
+                            <li><a href="/services/air-conditioning">Air Conditioning</a></li>
+                            <li><a href="/services/plumbing">Plumbing</a></li>
+                          </ul>
+                        </li>
                         <li><a href="/blog">Blog</a></li>
                         <li><a href="/contact">Contact</a></li>
                       </ul>
