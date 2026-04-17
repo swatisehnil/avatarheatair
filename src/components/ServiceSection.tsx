@@ -3,12 +3,11 @@
 import Image from "next/image";
 
 const services = [
-  { id: 1, img: "/assets/img/service/1-1.png", title: "Plumbing", desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
-  { id: 2, img: "/assets/img/service/1-2.png", title: "Electrical", desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
-  { id: 3, img: "/assets/img/service/1-3.png", title: "Carpentry", desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
-  { id: 4, img: "/assets/img/service/1-4.png", title: "Painting", desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
-  { id: 5, img: "/assets/img/service/1-5.png", title: "Flooring", desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
-  { id: 6, img: "/assets/img/service/1-6.png", title: "Home Renovation", desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
+  { id: 1, img: "/assets/img/service/1-1.png", title: "Heating System", desc: "Our expert technicians are trained to handle furnaces, heat pumps..." },
+  { id: 2, img: "/assets/img/service/1-2.png", title: "Air Conditioning", desc: "Efficient air conditioning ensures comfort, cooling, and improved ..." },
+  { id: 3, img: "/assets/img/service/1-3.png", title: "Plumbing", desc: "Expert plumbing solutions ensure smooth water flow and efficient..." },
+  
+  
 ];
 
 export default function ServiceSection() {

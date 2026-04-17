@@ -133,7 +133,7 @@ export default function AirConditioningPage() {
           <div className="row">
             {[
               { img: "1.png", title: "Quality Service", desc: "We deliver top-quality AC services using advanced tools and modern techniques." },
-              { img: "2.png", title: "Affordable Price", desc: "Transparent pricing with no hidden charges for complete peace of mind." },
+              { img: "2.png", title: "Affordable Price", desc: "Transparent pricing with no hidden charges for complete peace of mind of efforts." },
               { img: "3.png", title: "Expert Technicians", desc: "Skilled professionals with years of experience in handling all types of AC systems." },
             ].map((f) => (
               <div key={f.title} className="col-xl-4 col-lg-4 col-md-4">
@@ -266,7 +266,13 @@ export default function AirConditioningPage() {
             <div className="col-xl-6 col-lg-6 text-lg-end">
               <div className="counter-wrap">
                 <div className="counter-img">
-                  <Image src="/assets/img/Conditioning/faq.jpg" alt="FAQ" width={500} height={350} />
+                   <Image
+                    src="/assets/img/Conditioning/faq.jpg"
+                    alt="FAQ"
+                    width={500}
+                    height={350}
+                    style={{ width: "100%", height: "auto" }}
+                  />
                 </div>
                 <div className="counter-content">
                   <div className="single-counter-item dark-bg">

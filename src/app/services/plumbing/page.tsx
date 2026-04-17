@@ -266,7 +266,13 @@ export default function PlumbingPage() {
             <div className="col-xl-6 col-lg-6 text-lg-end">
               <div className="counter-wrap">
                 <div className="counter-img">
-                  <Image src="/assets/img/counter-bg.jpg" alt="FAQ" width={500} height={350} />
+                   <Image
+                    src="/assets/img/Conditioning/faq.jpg"
+                    alt="FAQ"
+                    width={500}
+                    height={350}
+                    style={{ width: "100%", height: "auto" }}
+                  />
                 </div>
                 <div className="counter-content">
                   <div className="single-counter-item dark-bg">
