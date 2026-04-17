@@ -6285,11 +6285,138 @@ width: 100%;
 .breadcum-img {
   background-image: url(../img/bd-6.jpg);
 }
+.breadcum-img {
+  height: 400px;
+  background-size: cover;
+  background-position: center bottom;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.breadcum-img .breadcrumb-title {
+  position: relative;
+  z-index: 999;
+  margin-top: 60px;
+}
+.breadcum-img .breadcrumb-title h1 {
+  font-size: 55px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+.breadcum-img .breadcrumb-title h1 {
+    font-size: 50px;
+  }
+}
+@media only screen and (min-width: 540px) and (max-width: 767px) {
+.breadcum-img .breadcrumb-title h1 {
+    font-size: 35px;
+  }
+}
+@media (max-width: 767px) {
+  .breadcum-img .breadcrumb-title h1 {
+    font-size: 40px;
+  }
+}
+
+
+
+
 .breadcum-imgs {
   background-image: url(../img/bd-7.jpg);
 }
+.breadcum-imgs {
+  height: 400px;
+  background-size: cover;
+  background-position: center bottom;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.breadcum-imgs .breadcrumb-title {
+  position: relative;
+  z-index: 999;
+  margin-top: 60px;
+}
+.breadcum-imgs .breadcrumb-title h1 {
+  font-size: 55px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+.breadcum-imgs .breadcrumb-title h1 {
+    font-size: 50px;
+  }
+}
+@media only screen and (min-width: 540px) and (max-width: 767px) {
+.breadcum-imgs .breadcrumb-title h1 {
+    font-size: 35px;
+  }
+}
+@media (max-width: 767px) {
+  .breadcum-imgs .breadcrumb-title h1 {
+    font-size: 40px;
+  }
+}
+
+
+
+
+
+.breadcum-info{
+    background-image: url(../img/bd-5.jpg);
+}
+.breadcum-info {
+  height: 400px;
+  background-size: cover;
+  background-position: center bottom;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.breadcum-info .breadcrumb-title {
+  position: relative;
+  z-index: 999;
+  margin-top: 60px;
+}
+.breadcum-info .breadcrumb-title h1 {
+  font-size: 55px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+.breadcum-info .breadcrumb-title h1 {
+    font-size: 50px;
+  }
+}
+@media only screen and (min-width: 540px) and (max-width: 767px) {
+.breadcum-info .breadcrumb-title h1 {
+    font-size: 35px;
+  }
+}
+@media (max-width: 767px) {
+.breadcum-info .breadcrumb-title h1 {
+    font-size: 40px;
+  }
+}
+
+
+
+
 .breadcrumb-area {
-  background-image: url(../img/bd-5.jpg);
+  background-image: url(../img/bread-bg.jpg);
 }
 
 /* ===== Service Areas Map Section ===== */

@@ -15,7 +15,7 @@ export default function HeatingSystemPage() {
       <Header />
 
       {/* Breadcrumb */}
-      <div className="breadcrumb-area">
+      <div className=" breadcum-info">
         <div className="overlay-5"></div>
         <div className="container">
           <div className="row justify-content-center">
@@ -42,27 +42,9 @@ export default function HeatingSystemPage() {
                 <div className="p-animation">
                   <p>We provide reliable and efficient heating system services for homes and businesses. Whether your heater is not working properly or you need a new installation, our skilled technicians are ready to help. We ensure quick service, affordable pricing, and long-lasting solutions.</p>
                   <p>We provide expert heating system repair and installation services, ensuring efficient performance, reliable operation, and long-lasting comfort for your home.</p>
+                <p>Stay warm and comfortable with our reliable heating system services. We specialize in installation, repair, and maintenance of all types of heating systems, ensuring your home or business remains cozy during colder months.</p>
                 </div>
-                <div className="row mt-60">
-                  <div className="col-xl-4 col-lg-4 col-md-4">
-                    <div className="single-counter-box">
-                      <div className="counter-number"><span className="purecounter" data-purecounter-duration="1" data-purecounter-end="310">310</span></div><span>+</span>
-                      <h6>Project Completed</h6>
-                    </div>
-                  </div>
-                  <div className="col-xl-4 col-lg-4 col-md-4">
-                    <div className="single-counter-box">
-                      <div className="counter-number"><span className="purecounter" data-purecounter-duration="1" data-purecounter-end="156">156</span></div><span>+</span>
-                      <h6>Satisfied Clients</h6>
-                    </div>
-                  </div>
-                  <div className="col-xl-4 col-lg-4 col-md-4">
-                    <div className="single-counter-box">
-                      <div className="counter-number"><span className="purecounter" data-purecounter-duration="1" data-purecounter-end="75">75</span></div><span></span>
-                      <h6>Awards Win</h6>
-                    </div>
-                  </div>
-                </div>
+                
               </div>
             </div>
             <div className="col-xl-6 col-lg-6 text-lg-end order-1 order-lg-2">
@@ -80,7 +62,13 @@ export default function HeatingSystemPage() {
           <div className="row align-items-center">
             <div className="col-xl-6 col-lg-6">
               <div className="testimonial-bg">
-                <Image src="/assets/img/testimonial/testimonial-img.jpg" alt="Testimonial" width={600} height={450} />
+               <Image
+  src="/assets/img/testimonial/testimonial-img.jpg"
+  alt="Testimonial"
+  width={600}
+  height={450}
+  style={{ width: "100%", height: "auto" }}
+/>
               </div>
             </div>
             <div className="col-xl-6 col-lg-6">

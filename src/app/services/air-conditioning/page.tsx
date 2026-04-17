@@ -15,7 +15,7 @@ export default function AirConditioningPage() {
       <Header />
 
       {/* Breadcrumb */}
-      <div className="breadcrumb-area breadcum-img">
+      <div className=" breadcum-img">
         <div className="overlay-5"></div>
         <div className="container">
           <div className="row justify-content-center">
@@ -42,27 +42,9 @@ export default function AirConditioningPage() {
                 <div className="p-animation">
                   <p>We provide reliable and efficient air conditioning services to keep your home and office cool and comfortable. Whether your AC is not cooling properly or you need a new installation, our expert technicians are here to help with fast and professional service.</p>
                   <p>Our team specializes in AC repair, installation, and maintenance, ensuring energy efficiency, optimal cooling, and long-lasting performance.</p>
+                <p>Stay cool and comfortable with our expert air conditioning services. We provide complete AC solutions, including installation, repair, and maintenance for residential and commercial spaces.</p>
                 </div>
-                <div className="row mt-60">
-                  <div className="col-xl-4 col-lg-4 col-md-4">
-                    <div className="single-counter-box">
-                      <div className="counter-number"><span className="purecounter" data-purecounter-duration="1" data-purecounter-end="310">310</span></div><span>+</span>
-                      <h6>Project Completed</h6>
-                    </div>
-                  </div>
-                  <div className="col-xl-4 col-lg-4 col-md-4">
-                    <div className="single-counter-box">
-                      <div className="counter-number"><span className="purecounter" data-purecounter-duration="1" data-purecounter-end="156">156</span></div><span>+</span>
-                      <h6>Satisfied Clients</h6>
-                    </div>
-                  </div>
-                  <div className="col-xl-4 col-lg-4 col-md-4">
-                    <div className="single-counter-box">
-                      <div className="counter-number"><span className="purecounter" data-purecounter-duration="1" data-purecounter-end="75">75</span></div><span></span>
-                      <h6>Awards Win</h6>
-                    </div>
-                  </div>
-                </div>
+              
               </div>
             </div>
             <div className="col-xl-6 col-lg-6 text-lg-end order-1 order-lg-2">
@@ -80,7 +62,13 @@ export default function AirConditioningPage() {
           <div className="row align-items-center">
             <div className="col-xl-6 col-lg-6">
               <div className="testimonial-bg">
-                <Image src="/assets/img/testimonial/testimonial-img.jpg" alt="Testimonial" width={600} height={450} />
+               <Image
+  src="/assets/img/testimonial/testimonial-img.jpg"
+  alt="Testimonial"
+  width={600}
+  height={450}
+  style={{ width: "100%", height: "auto" }}
+/>
               </div>
             </div>
             <div className="col-xl-6 col-lg-6">
