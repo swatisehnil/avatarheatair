@@ -1,317 +1,105 @@
-"use client";
+export const dynamic = 'force-dynamic';
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SearchPopup from "@/components/SearchPopup";
-import Image from "next/image";
-import { useState } from "react";
-import ServiceMap from "@/components/ServiceMap";
+import ServiceDetailClient from "@/components/ServiceDetailClient";
+import { connectDB } from "@/lib/mongodb";
+import ServicePageModel from "@/lib/models/ServicePage";
 
-export default function PlumbingPage() {
-  const [activeTab, setActiveTab] = useState("discovery");
+const SLUG = "plumbing";
+
+const defaults = {
+  breadcrumbTitle: "Plumbing",
+  breadcrumbClass: "breadcum-imgs",
+  aboutSubtitle: "Designed To Grow Your Business",
+  aboutHeading: "Plumbing Installation & Repair",
+  aboutParagraphs: [
+    "We provide expert plumbing services for residential and commercial properties. From fixing leaks and blocked drains to complete pipe installations, our skilled plumbers ensure efficient and long-lasting solutions.",
+    "Whether it's a minor repair or a major plumbing project, we deliver high-quality work with a focus on reliability. We provide reliable and professional plumbing services to keep your home or business running smoothly.",
+    "Whether it's a dripping faucet, clogged drain, or a full pipe replacement, we ensure fast response times and long-lasting solutions.",
+  ],
+  aboutImage: "/assets/img/about/about-3-1.jpg",
+  testimonialImage: "/assets/img/testimonial/testimonial-img.jpg",
+  testimonialQuote: "Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed.",
+  testimonialSubText: "Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.",
+  testimonialAuthorImage: "/assets/img/testimonial/ceo.jpg",
+  testimonialAuthorName: "Francis Fooler",
+  testimonialAuthorRole: "CEO, shromik Inc.",
+  ctaTitle: "Secure Your Service Appointment!",
+  ctaButtonText: "Contact Us",
+  ctaButtonLink: "/contact",
+  features: [
+    { img: "/assets/img/feature/1.png", title: "Quality Materials", desc: "We use high-quality pipes, fittings, and tools to ensure durable and long-lasting plumbing solutions." },
+    { img: "/assets/img/feature/2.png", title: "Affordable Price", desc: "Our plumbing services come with transparent pricing and no hidden charges, giving you the best value." },
+    { img: "/assets/img/feature/3.png", title: "Expert Plumbers", desc: "Our skilled and certified plumbers deliver precise repairs and professional installations every time." },
+  ],
+  processSubtitle: "What We Offer",
+  processHeading: "Working Process in 3 Steps",
+  processTabs: [
+    { id: "discovery", label: "Plumbing Planning", stepLabel: "Step 1", heading: "Meeting clients & planning concept", description: "We carefully inspect your property to understand your plumbing needs, including pipes, fittings, and existing systems.", image: "/assets/img/plumbing/p-1.jpg" },
+    { id: "design", label: "Equipment Preparation", stepLabel: "Step 2", heading: "Testing material with equipment", description: "We carefully select high-quality pipes, fittings, and tools required for the job. All materials are checked to ensure durability, safety, and compliance.", image: "/assets/img/process/1-2.jpg" },
+    { id: "implementation", label: "Installation & Testing", stepLabel: "Step 3", heading: "Installation Plumbing Service Smoothly", description: "Our skilled plumbers carry out the installation with precision and care. After completion, we thoroughly test the system to ensure proper water flow.", image: "/assets/img/plumbing/p-2.jpg" },
+  ],
+  faqSubtitle: "FAQ",
+  faqHeading: "Everything You Need To Know About Plumbing",
+  faqImage: "/assets/img/Conditioning/faq.jpg",
+  happyClientsCount: 124,
+  happyClientsLabel: "Happy Clients",
+  happyClientsText: "Adipiscing elit, do eiusm.",
+  faqs: [
+    { question: "Do you provide emergency plumbing services?", answer: "Yes, we offer quick and reliable emergency plumbing services to handle urgent issues like leaks and pipe bursts." },
+    { question: "How often should plumbing systems be checked?", answer: "It is recommended to inspect your plumbing system at least once a year to prevent leaks, blockages, and costly repairs." },
+    { question: "How long does plumbing installation take?", answer: "Installation time depends on the project size, but most standard installations are completed within a few hours." },
+  ],
+};
+
+async function getData() {
+  try {
+    await connectDB();
+    const doc = await ServicePageModel.findOne({ slug: SLUG }).lean();
+    return doc ? JSON.parse(JSON.stringify(doc)) : null;
+  } catch { return null; }
+}
+
+export default async function PlumbingPage() {
+  const doc = await getData();
+  const d = doc as any;
+
+  const props = {
+    slug: SLUG,
+    breadcrumbTitle:        d?.breadcrumbTitle        ?? defaults.breadcrumbTitle,
+    breadcrumbClass:        d?.breadcrumbClass        ?? defaults.breadcrumbClass,
+    aboutSubtitle:          d?.aboutSubtitle          ?? defaults.aboutSubtitle,
+    aboutHeading:           d?.aboutHeading           ?? defaults.aboutHeading,
+    aboutParagraphs:        d?.aboutParagraphs?.length ? d.aboutParagraphs : defaults.aboutParagraphs,
+    aboutImage:             d?.aboutImage             ?? defaults.aboutImage,
+    testimonialImage:       d?.testimonialImage       ?? defaults.testimonialImage,
+    testimonialQuote:       d?.testimonialQuote       ?? defaults.testimonialQuote,
+    testimonialSubText:     d?.testimonialSubText     ?? defaults.testimonialSubText,
+    testimonialAuthorImage: d?.testimonialAuthorImage ?? defaults.testimonialAuthorImage,
+    testimonialAuthorName:  d?.testimonialAuthorName  ?? defaults.testimonialAuthorName,
+    testimonialAuthorRole:  d?.testimonialAuthorRole  ?? defaults.testimonialAuthorRole,
+    ctaTitle:               d?.ctaTitle               ?? defaults.ctaTitle,
+    ctaButtonText:          d?.ctaButtonText          ?? defaults.ctaButtonText,
+    ctaButtonLink:          d?.ctaButtonLink          ?? defaults.ctaButtonLink,
+    features:               d?.features?.length       ? d.features       : defaults.features,
+    processSubtitle:        d?.processSubtitle        ?? defaults.processSubtitle,
+    processHeading:         d?.processHeading         ?? defaults.processHeading,
+    processTabs:            d?.processTabs?.length    ? d.processTabs    : defaults.processTabs,
+    faqSubtitle:            d?.faqSubtitle            ?? defaults.faqSubtitle,
+    faqHeading:             d?.faqHeading             ?? defaults.faqHeading,
+    faqImage:               d?.faqImage               ?? defaults.faqImage,
+    happyClientsCount:      d?.happyClientsCount      ?? defaults.happyClientsCount,
+    happyClientsLabel:      d?.happyClientsLabel      ?? defaults.happyClientsLabel,
+    happyClientsText:       d?.happyClientsText       ?? defaults.happyClientsText,
+    faqs:                   d?.faqs?.length           ? d.faqs           : defaults.faqs,
+  };
 
   return (
     <>
       <Header />
-
-      {/* Breadcrumb */}
-      <div className=" breadcum-imgs">
-        <div className="overlay-5"></div>
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-6 text-center">
-              <div className="breadcrumb-title"><h1>Plumbing</h1></div>
-              <div className="breadcrumb-icon"><i className="las la-angle-down"></i></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* About Section */}
-      <div id="about-3" className="about-section about-three section-padding">
-        <div className="container">
-          <div className="row">
-            <div className="col-xl-6 col-lg-6 col-md-12 order-2 order-lg-1">
-              <div className="about-content-wrap">
-                <div className="section-title">
-                  <div className="heading-animation">
-                    <h6 className="text-secondary">Designed To Grow Your Business</h6>
-                    <h2>Plumbing Installation &amp; Repair</h2>
-                  </div>
-                </div>
-                <div className="p-animation">
-                  <p>We provide expert plumbing services for residential and commercial properties. From fixing leaks and blocked drains to complete pipe installations, our skilled plumbers ensure efficient and long-lasting solutions.</p>
-                  <p>Whether it&apos;s a minor repair or a major plumbing project, we deliver high-quality work with a focus on reliability.We provide reliable and professional plumbing services to keep your home or business running smoothly. From minor leaks to complete system installations, our experienced plumbers handle every job with precision and care.</p>
-                <p>Whether it’s a dripping faucet, clogged drain, or a full pipe replacement, we ensure fast response times and long-lasting solutions. </p>
-                </div>
-                
-              </div>
-            </div>
-            <div className="col-xl-6 col-lg-6 text-lg-end order-1 order-lg-2">
-              <div className="about-bg-wrapper">
-                <Image src="/assets/img/about/about-3-1.jpg" alt="Plumbing" width={600} height={500} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Testimonial Section */}
-      <div id="testimonial-3" className="testimonial-section gray-bg section-padding">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-xl-6 col-lg-6">
-              <div className="testimonial-bg">
-               <Image
-  src="/assets/img/testimonial/testimonial-img.jpg"
-  alt="Testimonial"
-  width={600}
-  height={450}
-  style={{ width: "100%", height: "auto" }}
-/>
-              </div>
-            </div>
-            <div className="col-xl-6 col-lg-6">
-              <div className="testimonial-content">
-                <div className="testimonial-icon">
-                  <Image src="/assets/img/straight-quotes.png" alt="Quote" width={40} height={40} />
-                </div>
-                <div className="testimonial-text">
-                  <h3>&ldquo;Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed. Beatae vitae dicta. Adipiscing elit, sed do&rdquo;</h3>
-                  <p>Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim. Adipiscing elit, sed do&rdquo;</p>
-                </div>
-                <div className="testimonial-author">
-                  <div className="author-img">
-                    <Image src="/assets/img/testimonial/ceo.jpg" alt="CEO" width={60} height={60} />
-                  </div>
-                  <div className="author-desc">
-                    <h5>Francis Fooler</h5>
-                    <h6>CEO, shromik Inc.</h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="cta-section section-padding cta-contact pb-80 dark-bg">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-xl-8 col-lg-8 col-md-8">
-              <div className="cta-title">
-                <div className="section-title">
-                  <h2 className="text-white">Secure Your Service Appointment!</h2>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-lg-4 col-md-4 text-lg-end">
-              <div className="cta-btn">
-                <a href="/contact" className="white-btn">Contact Us</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Feature Section */}
-      <div className="feature-section">
-        <div className="container">
-          <div className="row">
-            {[
-              { img: "1.png", title: "Quality Materials", desc: "We use high-quality pipes, fittings, and tools to ensure durable and long-lasting plumbing solutions." },
-              { img: "2.png", title: "Affordable Price", desc: "Our plumbing services come with transparent pricing and no hidden charges, giving you the best value." },
-              { img: "3.png", title: "Expert Plumbers", desc: "Our skilled and certified plumbers deliver precise repairs and professional installations every time." },
-            ].map((f) => (
-              <div key={f.title} className="col-xl-4 col-lg-4 col-md-4">
-                <div className="single-feature-wrap">
-                  <div className="feature-icon">
-                    <Image src={`/assets/img/feature/${f.img}`} alt={f.title} width={60} height={60} />
-                  </div>
-                  <h5>{f.title}</h5>
-                  <p>{f.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Working Process */}
-      <div className="process-section section-padding">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-xl-8 text-center">
-              <div className="section-title">
-                <h6>What We Offer</h6>
-                <h2>Working Process in 3 Steps</h2>
-              </div>
-            </div>
-          </div>
-          <div className="row gx-5 justify-content-center">
-            <nav>
-              <div className="nav project-list justify-content-center" role="tablist">
-                {[
-                  { id: "discovery", label: "Plumbing Planning" },
-                  { id: "design", label: "Equipment Preparation" },
-                  { id: "implementation", label: "Installation & Testing" },
-                ].map((tab) => (
-                  <button key={tab.id} className={`nav-link${activeTab === tab.id ? " active" : ""}`} onClick={() => setActiveTab(tab.id)} type="button">{tab.label}</button>
-                ))}
-              </div>
-            </nav>
-            <div className="tab-content mt-60">
-              {activeTab === "discovery" && (
-                <div className="tab-pane fade active show">
-                  <div className="row align-items-center">
-                    <div className="col-xl-6 col-lg-6 col-md-6">
-                      <div className="process-content-wrap">
-                        <div className="section-title"><h6>Step 1</h6><h2>Meeting clients &amp; planning concept</h2></div>
-                        <p>We carefully inspect your property to understand your plumbing needs, including pipes, fittings, and existing systems. Based on our assessment, we identify issues like leaks or blockages and recommend the most efficient, cost-effective, and reliable plumbing solutions.</p>
-                      </div>
-                    </div>
-                    <div className="col-xl-6 col-lg-6 col-md-6">
-                      <div className="process-bg-wrap">
-                        <Image src="/assets/img/plumbing/p-1.jpg" alt="Step 1" width={600} height={400} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-              {activeTab === "design" && (
-                <div className="tab-pane fade active show">
-                  <div className="row align-items-center">
-                    <div className="col-xl-6 col-lg-6 col-md-6">
-                      <div className="process-content-wrap">
-                        <div className="section-title"><h6>Step 2</h6><h2>Testing material with equipment</h2></div>
-                        <p>We carefully select high-quality pipes, fittings, and tools required for the job. All materials are checked to ensure durability, safety, and compliance with industry standards before installation begins.</p>
-                      </div>
-                    </div>
-                    <div className="col-xl-6 col-lg-6 col-md-6">
-                      <div className="process-bg-wrap">
-                        <Image src="/assets/img/process/1-2.jpg" alt="Step 2" width={600} height={400} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-              {activeTab === "implementation" && (
-                <div className="tab-pane fade active show">
-                  <div className="row align-items-center">
-                    <div className="col-xl-6 col-lg-6 col-md-6">
-                      <div className="process-content-wrap">
-                        <div className="section-title"><h6>Step 3</h6><h2>Installation Plumbing Service Smoothly</h2></div>
-                        <p>Our skilled plumbers carry out the installation with precision and care. After completion, we thoroughly test the system to ensure proper water flow, leak-free connections, and reliable long-term performance.</p>
-                      </div>
-                    </div>
-                    <div className="col-xl-6 col-lg-6 col-md-6">
-                      <div className="process-bg-wrap">
-                        <Image src="/assets/img/plumbing/p-2.jpg" alt="Step 3" width={600} height={400} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Map Section */}
-      <ServiceMap />
-
-      {/* FAQ Section */}
-      <div className="faq-section section-padding pt-80">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-xl-6 col-lg-6">
-              <div className="section-title">
-                <h6>FAQ</h6>
-                <h2>Everything You Need To Know <br /> About Plumbing</h2>
-              </div>
-              <div className="cp-custom-accordion">
-                <div className="accordions" id="accordionExampleP">
-                  {[
-                    { id: "One", q: "Do you provide emergency plumbing services?", a: "Yes, we offer quick and reliable emergency plumbing services to handle urgent issues like leaks and pipe bursts." },
-                    { id: "Two", q: "How often should plumbing systems be checked?", a: "It is recommended to inspect your plumbing system at least once a year to prevent leaks, blockages, and costly repairs." },
-                    { id: "Three", q: "How long does plumbing installation take?", a: "Installation time depends on the project size, but most standard installations are completed within a few hours." },
-                  ].map((faq) => (
-                    <div key={faq.id} className="accordion-items">
-                      <h2 className="accordion-header">
-                        <button className="accordion-buttons" type="button" data-bs-toggle="collapse" data-bs-target={`#collapseP${faq.id}`} aria-expanded={faq.id === "One" ? "true" : "false"}>
-                          <span>{faq.q}</span>
-                        </button>
-                      </h2>
-                      <div id={`collapseP${faq.id}`} className={`accordion-collapse collapse${faq.id === "One" ? " show" : ""}`} data-bs-parent="#accordionExampleP">
-                        <div className="accordion-body">{faq.a}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-6 col-lg-6 text-lg-end">
-              <div className="counter-wrap">
-                <div className="counter-img">
-                   <Image
-                    src="/assets/img/Conditioning/faq.jpg"
-                    alt="FAQ"
-                    width={500}
-                    height={350}
-                    style={{ width: "100%", height: "auto" }}
-                  />
-                </div>
-                <div className="counter-content">
-                  <div className="single-counter-item dark-bg">
-                    <h6>Happy Clients</h6>
-                    <h1><span className="odometer" data-count="124">124</span>+</h1>
-                    <p>Adipiscing elit, do eiusm.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Testimonial Carousel */}
-      <div id="testimonial-1" className="testimonial-area gray-bg section-padding pb-100">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12 text-center">
-              <div className="section-title">
-                <h6>Testimonial</h6>
-                <h2>Happy Client Says <br /> About Us</h2>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="testimonial-carousel owl-carousel" style={{ display: "block" }}>
-                {[
-                  { img: "1.jpg", name: "Albert Krish", role: "Social Activist" },
-                  { img: "2.jpg", name: "Bill Lorris", role: "Business Man" },
-                  { img: "3.jpg", name: "Josh Batlar", role: "Factory Foreman" },
-                  { img: "4.jpg", name: "Joe Root", role: "Supervisor" },
-                ].map((t) => (
-                  <div key={t.name} className="single-testimonial-item">
-                    <div className="testimonial-icon"><i className="las la-quote-left"></i></div>
-                    <p>&ldquo;The magic formula that successful businesses have discovered is to treat customers&rdquo;</p>
-                    <div className="author-wrap">
-                      <div className="author-thumb">
-                        <Image src={`/assets/img/testimonial/${t.img}`} alt={t.name} width={60} height={60} />
-                      </div>
-                      <div className="author-desc"><h5>{t.name}</h5><span>{t.role}</span></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <ServiceDetailClient {...props} />
       <Footer />
       <SearchPopup />
       <div className="progress-wrap">

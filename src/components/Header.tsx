@@ -24,7 +24,7 @@ export default function Header() {
                   <li className="active"><a className="navlink" href="/">Home</a></li>
                   <li><a className="navlink" href="/about">About</a></li>
                   <li>
-                    <a className="navlink" href="/services">Services</a>
+                    <a className="navlink" href="#" onClick={e => e.preventDefault()}>Services</a>
                     <ul className="sub-menu">
                       <li><a href="/services/heating-system">Heating System</a></li>
                       <li><a href="/services/air-conditioning">Air Conditioning</a></li>
@@ -60,7 +60,7 @@ export default function Header() {
                         <li><a href="/">Home</a></li>
                         <li><a href="/about">About</a></li>
                         <li>
-                          <a className="has-arrow" href="/services">Services</a>
+                          <a className="has-arrow" href="#" onClick={e => e.preventDefault()}>Services</a>
                           <ul className="sub-menu">
                             <li><a href="/services/heating-system">Heating System</a></li>
                             <li><a href="/services/air-conditioning">Air Conditioning</a></li>

@@ -2,60 +2,56 @@
 
 import Image from "next/image";
 
-export default function AboutSection() {
+interface Feature { icon: string; title: string; description: string }
+interface Props {
+  subtitle?: string; heading?: string; description?: string;
+  primaryImage?: string; secondaryImage?: string;
+  features?: Feature[]; ctaText?: string; ctaLink?: string;
+}
+
+export default function AboutSection({
+  subtitle = "About Us",
+  heading = "About Avatar Home Service",
+  description = "Lorem ipsum dolor sit amet consectetur. Amet lectus mi ultricies the dictum facilisis thr sem.",
+  primaryImage = "/assets/img/about/about-1-1.jpg",
+  secondaryImage = "/assets/img/about/about-1-2.jpg",
+  features = [
+    { icon: "/assets/img/about/1.png", title: "Professional Staff", description: "Overall, professional the man Engineers play" },
+    { icon: "/assets/img/about/2.png", title: "Customer Support", description: "Overall, professional the man Engineers play" },
+  ],
+  ctaText = "Read More",
+  ctaLink = "/about",
+}: Props) {
   return (
     <div className="about-section gray-bg section-padding pb-150">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-xl-6 col-lg-6">
             <div className="about-img-wrap">
-              <div className="image-one">
-                <Image src="/assets/img/about/about-1-1.jpg" alt="About" width={500} height={400} priority />
-              </div>
-              <div className="image-two">
-                <Image src="/assets/img/about/about-1-2.jpg" alt="About" width={300} height={250} priority />
-              </div>
+              <div className="image-one"><Image src={primaryImage} alt="About" width={500} height={400} priority /></div>
+              <div className="image-two"><Image src={secondaryImage} alt="About" width={300} height={250} priority /></div>
             </div>
           </div>
-
           <div className="col-xl-6 col-lg-6">
             <div className="about-content-wrap">
               <div className="section-title">
-                <h6>About Us</h6>
-                <h2 className="visible-slowly-right">About Avatar Home Service</h2>
+                <h6>{subtitle}</h6>
+                <h2 className="visible-slowly-right">{heading}</h2>
               </div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur. Amet lectus mi ultricies the dictum
-                facilisis thr sem. Imperdiet massa turpis sit Lorem ipsum dolor sit amet
-                consectetur amet a lectus mi ultricies the man
-              </p>
+              <p>{description}</p>
               <div className="feature-service">
                 <div className="row gy-4">
-                  <div className="col-md-6">
-                    <div className="single-feat-service">
-                      <div className="feat-icon">
-                        <Image src="/assets/img/about/1.png" alt="Professional Staff" width={50} height={50} />
-                      </div>
-                      <div className="feat-content">
-                        <h4>Professional Staff</h4>
-                        <p>Overall, professional the man <br /> Engineers play</p>
+                  {features.map((f, i) => (
+                    <div key={i} className="col-md-6">
+                      <div className="single-feat-service">
+                        <div className="feat-icon"><Image src={f.icon} alt={f.title} width={50} height={50} /></div>
+                        <div className="feat-content"><h4>{f.title}</h4><p>{f.description}</p></div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="single-feat-service">
-                      <div className="feat-icon">
-                        <Image src="/assets/img/about/2.png" alt="Customer Support" width={50} height={50} />
-                      </div>
-                      <div className="feat-content">
-                        <h4>Customer Support</h4>
-                        <p>Overall, professional the man <br /> Engineers play</p>
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
-              <a href="about" className="theme-btn mt-20">Read More</a>
+              <a href={ctaLink} className="theme-btn mt-20">{ctaText}</a>
             </div>
           </div>
         </div>
