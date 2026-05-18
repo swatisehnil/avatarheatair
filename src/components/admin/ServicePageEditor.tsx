@@ -8,7 +8,7 @@ interface ProcessTab { id: string; label: string; stepLabel: string; heading: st
 interface Faq        { question: string; answer: string }
 
 interface Data {
-  breadcrumbTitle: string; breadcrumbClass: string;
+  breadcrumbTitle: string; breadcrumbClass: string; breadcrumbImage: string;
   aboutSubtitle: string; aboutHeading: string; aboutParagraphs: string[]; aboutImage: string;
   testimonialImage: string; testimonialQuote: string; testimonialSubText: string;
   testimonialAuthorImage: string; testimonialAuthorName: string; testimonialAuthorRole: string;
@@ -21,7 +21,7 @@ interface Data {
 }
 
 const empty: Data = {
-  breadcrumbTitle: "", breadcrumbClass: "breadcum-info",
+  breadcrumbTitle: "", breadcrumbClass: "breadcum-info", breadcrumbImage: "",
   aboutSubtitle: "Designed To Grow Your Business", aboutHeading: "", aboutParagraphs: [], aboutImage: "",
   testimonialImage: "", testimonialQuote: "", testimonialSubText: "",
   testimonialAuthorImage: "", testimonialAuthorName: "", testimonialAuthorRole: "",
@@ -92,7 +92,7 @@ export default function ServicePageEditor({ slug, title }: { slug: string; title
 
       {/* ── Breadcrumb ── */}
       <Section title="Breadcrumb">
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: data.breadcrumbClass !== "breadcum-info" ? 14 : 0 }}>
           <Field label="Page Title" value={data.breadcrumbTitle} onChange={v => set("breadcrumbTitle", v)} />
           <div>
             <label style={labelStyle}>Background Style</label>
@@ -101,6 +101,13 @@ export default function ServicePageEditor({ slug, title }: { slug: string; title
             </select>
           </div>
         </div>
+        {data.breadcrumbClass !== "breadcum-info" && (
+          <ImagePicker
+            label="Breadcrumb Background Image"
+            value={data.breadcrumbImage}
+            onChange={v => set("breadcrumbImage", v)}
+          />
+        )}
       </Section>
 
       {/* ── About / Intro ── */}

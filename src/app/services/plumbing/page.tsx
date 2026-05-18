@@ -12,6 +12,7 @@ const SLUG = "plumbing";
 const defaults = {
   breadcrumbTitle: "Plumbing",
   breadcrumbClass: "breadcum-imgs",
+  breadcrumbImage: "",
   aboutSubtitle: "Designed To Grow Your Business",
   aboutHeading: "Plumbing Installation & Repair",
   aboutParagraphs: [
@@ -70,6 +71,7 @@ export default async function PlumbingPage() {
     slug: SLUG,
     breadcrumbTitle:        d?.breadcrumbTitle        ?? defaults.breadcrumbTitle,
     breadcrumbClass:        d?.breadcrumbClass        ?? defaults.breadcrumbClass,
+    breadcrumbImage:        d?.breadcrumbImage        ?? defaults.breadcrumbImage,
     aboutSubtitle:          d?.aboutSubtitle          ?? defaults.aboutSubtitle,
     aboutHeading:           d?.aboutHeading           ?? defaults.aboutHeading,
     aboutParagraphs:        d?.aboutParagraphs?.length ? d.aboutParagraphs : defaults.aboutParagraphs,
@@ -110,3 +112,4 @@ export default async function PlumbingPage() {
     </>
   );
 }
+

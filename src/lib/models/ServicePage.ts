@@ -25,6 +25,7 @@ export interface IServicePage {
 
   breadcrumbTitle: string;
   breadcrumbClass: string;
+  breadcrumbImage: string;
 
   aboutSubtitle:    string;
   aboutHeading:     string;
@@ -62,6 +63,7 @@ const schema = new Schema<IServicePage>({
 
   breadcrumbTitle: { type: String, default: '' },
   breadcrumbClass: { type: String, default: 'breadcum-info' },
+  breadcrumbImage: { type: String, default: '' },
 
   aboutSubtitle:   { type: String, default: 'Designed To Grow Your Business' },
   aboutHeading:    { type: String, default: '' },

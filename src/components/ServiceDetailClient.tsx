@@ -13,6 +13,7 @@ interface Props {
   slug: string;
   breadcrumbTitle: string;
   breadcrumbClass: string;
+  breadcrumbImage?: string;
 
   aboutSubtitle: string;
   aboutHeading: string;
@@ -47,7 +48,7 @@ interface Props {
 
 export default function ServiceDetailClient(props: Props) {
   const {
-    breadcrumbTitle, breadcrumbClass,
+    breadcrumbTitle, breadcrumbClass, breadcrumbImage,
     aboutSubtitle, aboutHeading, aboutParagraphs, aboutImage,
     testimonialImage, testimonialQuote, testimonialSubText,
     testimonialAuthorImage, testimonialAuthorName, testimonialAuthorRole,
@@ -64,7 +65,7 @@ export default function ServiceDetailClient(props: Props) {
   return (
     <>
       {/* Breadcrumb */}
-      <div className={breadcrumbClass}>
+      <div className={breadcrumbClass} style={breadcrumbImage ? { backgroundImage: `url('${breadcrumbImage}')` } : undefined}>
         <div className="overlay-5"></div>
         <div className="container">
           <div className="row justify-content-center">

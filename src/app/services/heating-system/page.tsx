@@ -12,6 +12,7 @@ const SLUG = "heating-system";
 const defaults = {
   breadcrumbTitle: "Heating System",
   breadcrumbClass: "breadcum-info",
+  breadcrumbImage: "",
   aboutSubtitle: "Designed To Grow Your Business",
   aboutHeading: "Heating System Repair & Installation Services",
   aboutParagraphs: [
@@ -70,6 +71,7 @@ export default async function HeatingSystemPage() {
     slug: SLUG,
     breadcrumbTitle:        d?.breadcrumbTitle        ?? defaults.breadcrumbTitle,
     breadcrumbClass:        d?.breadcrumbClass        ?? defaults.breadcrumbClass,
+    breadcrumbImage:        d?.breadcrumbImage        ?? defaults.breadcrumbImage,
     aboutSubtitle:          d?.aboutSubtitle          ?? defaults.aboutSubtitle,
     aboutHeading:           d?.aboutHeading           ?? defaults.aboutHeading,
     aboutParagraphs:        d?.aboutParagraphs?.length ? d.aboutParagraphs : defaults.aboutParagraphs,
@@ -110,3 +112,4 @@ export default async function HeatingSystemPage() {
     </>
   );
 }
+

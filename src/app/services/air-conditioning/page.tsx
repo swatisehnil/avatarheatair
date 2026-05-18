@@ -12,6 +12,7 @@ const SLUG = "air-conditioning";
 const defaults = {
   breadcrumbTitle: "Air Conditioning",
   breadcrumbClass: "breadcum-img",
+  breadcrumbImage: "",
   aboutSubtitle: "Designed To Grow Your Business",
   aboutHeading: "Air Conditioning Repair & Installation Services",
   aboutParagraphs: [
@@ -70,6 +71,7 @@ export default async function AirConditioningPage() {
     slug: SLUG,
     breadcrumbTitle:        d?.breadcrumbTitle        ?? defaults.breadcrumbTitle,
     breadcrumbClass:        d?.breadcrumbClass        ?? defaults.breadcrumbClass,
+    breadcrumbImage:        d?.breadcrumbImage        ?? defaults.breadcrumbImage,
     aboutSubtitle:          d?.aboutSubtitle          ?? defaults.aboutSubtitle,
     aboutHeading:           d?.aboutHeading           ?? defaults.aboutHeading,
     aboutParagraphs:        d?.aboutParagraphs?.length ? d.aboutParagraphs : defaults.aboutParagraphs,
@@ -110,3 +112,4 @@ export default async function AirConditioningPage() {
     </>
   );
 }
+
