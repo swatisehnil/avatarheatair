@@ -9,7 +9,7 @@ interface Faq        { question: string; answer: string }
 
 interface Data {
   breadcrumbTitle: string; breadcrumbClass: string; breadcrumbImage: string;
-  aboutSubtitle: string; aboutHeading: string; aboutParagraphs: string[]; aboutImage: string;
+  aboutSubtitle: string; aboutHeading: string; aboutParagraphs: string[]; servicesList: string[]; aboutImage: string;
   testimonialImage: string; testimonialQuote: string; testimonialSubText: string;
   testimonialAuthorImage: string; testimonialAuthorName: string; testimonialAuthorRole: string;
   ctaTitle: string; ctaButtonText: string; ctaButtonLink: string;
@@ -22,7 +22,7 @@ interface Data {
 
 const empty: Data = {
   breadcrumbTitle: "", breadcrumbClass: "breadcum-info", breadcrumbImage: "",
-  aboutSubtitle: "Designed To Grow Your Business", aboutHeading: "", aboutParagraphs: [], aboutImage: "",
+  aboutSubtitle: "Designed To Grow Your Business", aboutHeading: "", aboutParagraphs: [], servicesList: [], aboutImage: "",
   testimonialImage: "", testimonialQuote: "", testimonialSubText: "",
   testimonialAuthorImage: "", testimonialAuthorName: "", testimonialAuthorRole: "",
   ctaTitle: "Secure Your Service Appointment!", ctaButtonText: "Contact Us", ctaButtonLink: "/contact",
@@ -50,6 +50,11 @@ export default function ServicePageEditor({ slug, title }: { slug: string; title
   function setParagraph(i: number, v: string) { const a = [...data.aboutParagraphs]; a[i] = v; set("aboutParagraphs", a); }
   function addParagraph() { set("aboutParagraphs", [...data.aboutParagraphs, ""]); }
   function removeParagraph(i: number) { set("aboutParagraphs", data.aboutParagraphs.filter((_, idx) => idx !== i)); }
+
+  // Services list
+  function setListItem(i: number, v: string) { const a = [...data.servicesList]; a[i] = v; set("servicesList", a); }
+  function addListItem() { set("servicesList", [...data.servicesList, ""]); }
+  function removeListItem(i: number) { set("servicesList", data.servicesList.filter((_, idx) => idx !== i)); }
 
   // Features
   function updateFeature(i: number, f: keyof Feature, v: string) {
@@ -127,6 +132,20 @@ export default function ServicePageEditor({ slug, title }: { slug: string; title
           </div>
         ))}
         <button onClick={addParagraph} style={outlineBtnStyle}>+ Add Paragraph</button>
+
+        <div style={{ marginTop: 20, borderTop: "1px solid #f0f0f0", paddingTop: 16 }}>
+          <label style={{ ...labelStyle, marginBottom: 10 }}>Services Bullet List</label>
+          <p style={{ fontSize: 12, color: "#999", marginTop: -4, marginBottom: 12 }}>
+            These items appear as a checkmark/bullet list below the paragraphs.
+          </p>
+          {data.servicesList.map((item, i) => (
+            <div key={i} style={{ display: "flex", gap: 8, marginBottom: 8 }}>
+              <input value={item} onChange={e => setListItem(i, e.target.value)} placeholder={`Service item ${i + 1}`} style={{ ...inputStyle, flex: 1 }} />
+              <button onClick={() => removeListItem(i)} style={dangerBtnStyle}>✕</button>
+            </div>
+          ))}
+          <button onClick={addListItem} style={outlineBtnStyle}>+ Add List Item</button>
+        </div>
       </Section>
 
       {/* ── Testimonial (single) ── */}

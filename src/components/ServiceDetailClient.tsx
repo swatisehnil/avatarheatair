@@ -18,6 +18,7 @@ interface Props {
   aboutSubtitle: string;
   aboutHeading: string;
   aboutParagraphs: string[];
+  servicesList?: string[];
   aboutImage: string;
 
   testimonialImage: string;
@@ -49,7 +50,7 @@ interface Props {
 export default function ServiceDetailClient(props: Props) {
   const {
     breadcrumbTitle, breadcrumbClass, breadcrumbImage,
-    aboutSubtitle, aboutHeading, aboutParagraphs, aboutImage,
+    aboutSubtitle, aboutHeading, aboutParagraphs, servicesList, aboutImage,
     testimonialImage, testimonialQuote, testimonialSubText,
     testimonialAuthorImage, testimonialAuthorName, testimonialAuthorRole,
     ctaTitle, ctaButtonText, ctaButtonLink,
@@ -91,6 +92,16 @@ export default function ServiceDetailClient(props: Props) {
                 </div>
                 <div className="p-animation">
                   {aboutParagraphs.map((p, i) => <p key={i}>{p}</p>)}
+                  {servicesList && servicesList.length > 0 && (
+                    <ul style={{ listStyle: "none", padding: 0, margin: "14px 0 0" }}>
+                      {servicesList.map((item, i) => (
+                        <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 8, fontSize: 15, color: "#444", lineHeight: 1.5 }}>
+                          <span style={{ color: "#DB7C37", fontSize: 18, lineHeight: 1.3, flexShrink: 0 }}>✔</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </div>
             </div>

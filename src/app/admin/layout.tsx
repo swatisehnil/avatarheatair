@@ -61,6 +61,20 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const [blogOpen,     setBlogOpen]     = useState(isBlogSection);
   const [servicesOpen, setServicesOpen] = useState(isServiceSection);
   const [contactOpen,  setContactOpen]  = useState(isContactSection);
+  const [sidebarOpen,  setSidebarOpen]  = useState(false);
+  const [isMobile,     setIsMobile]     = useState(false);
+
+  useEffect(() => {
+    function check() { setIsMobile(window.innerWidth < 768); }
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  // Close sidebar on navigation on mobile
+  useEffect(() => {
+    if (isMobile) setSidebarOpen(false);
+  }, [pathname, isMobile]);
 
   useEffect(() => {
     if (isHomeSection)    setHomeOpen(true);
@@ -80,77 +94,78 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const pageTitle = allNavLabels[pathname] ?? "Admin";
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", fontFamily: "'Segoe UI', sans-serif" }}>
+    <div id="admin-layout" style={{ display: "flex", minHeight: "100vh", fontFamily: "'Segoe UI', sans-serif" }}>
+
+      {/* ── Mobile overlay backdrop ── */}
+      {isMobile && sidebarOpen && (
+        <div
+          onClick={() => setSidebarOpen(false)}
+          style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.55)", zIndex: 998 }}
+        />
+      )}
 
       {/* ── Sidebar ── */}
-      <aside style={{ width: 240, background: "#1a1a2e", color: "#fff", display: "flex", flexDirection: "column", flexShrink: 0 }}>
+      <aside style={{
+        width: 240,
+        background: "#1a1a2e",
+        color: "#fff",
+        display: "flex",
+        flexDirection: "column",
+        flexShrink: 0,
+        position: isMobile ? "fixed" : "relative",
+        top: 0,
+        left: isMobile ? (sidebarOpen ? 0 : -240) : 0,
+        height: isMobile ? "100vh" : undefined,
+        zIndex: 999,
+        transition: "left 0.25s ease",
+        overflowY: "auto",
+      }}>
 
-        <div style={{ padding: "24px 20px 16px", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
-          <Image src="/assets/img/white-logo.png" alt="Logo" width={140} height={44} style={{ objectFit: "contain" }} />
-          <p style={{ fontSize: 11, color: "#aaa", marginTop: 6, letterSpacing: 1, textTransform: "uppercase" }}>Content Manager</p>
+        <div style={{ padding: "24px 20px 16px", borderBottom: "1px solid rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div>
+            <Image src="/assets/img/white-logo.png" alt="Logo" width={130} height={40} style={{ objectFit: "contain" }} />
+            <p style={{ fontSize: 11, color: "#aaa", marginTop: 6, letterSpacing: 1, textTransform: "uppercase", marginBottom: 0 }}>Content Manager</p>
+          </div>
+          {isMobile && (
+            <button onClick={() => setSidebarOpen(false)} style={{ background: "none", border: "none", color: "#aaa", fontSize: 22, cursor: "pointer", lineHeight: 1, padding: 4 }}>✕</button>
+          )}
         </div>
 
         <nav style={{ flex: 1, padding: "12px 0", overflowY: "auto" }}>
 
           <NavLink href="/admin" label="Dashboard" icon="🏠" active={pathname === "/admin"} />
 
-          {/* Home Page */}
-          <Dropdown
-            icon="🏡" label="Home Page"
-            open={homeOpen} onToggle={() => setHomeOpen(o => !o)}
-            active={isHomeSection}
-          >
+          <Dropdown icon="🏡" label="Home Page" open={homeOpen} onToggle={() => setHomeOpen(o => !o)} active={isHomeSection}>
             {homePageSections.map(item => (
               <DropdownLink key={item.href} item={item} active={pathname === item.href} />
             ))}
           </Dropdown>
 
-          {/* About */}
-          <Dropdown
-            icon="📑" label="About"
-            open={pagesOpen} onToggle={() => setPagesOpen(o => !o)}
-            active={isStaticSection}
-          >
+          <Dropdown icon="📑" label="About" open={pagesOpen} onToggle={() => setPagesOpen(o => !o)} active={isStaticSection}>
             {staticPages.map(item => (
               <DropdownLink key={item.href} item={item} active={pathname === item.href} />
             ))}
           </Dropdown>
 
-          {/* Blog */}
-          <Dropdown
-            icon="📰" label="Blog"
-            open={blogOpen} onToggle={() => setBlogOpen(o => !o)}
-            active={isBlogSection}
-          >
+          <Dropdown icon="📰" label="Blog" open={blogOpen} onToggle={() => setBlogOpen(o => !o)} active={isBlogSection}>
             {blogPages.map(item => (
               <DropdownLink key={item.href} item={item} active={pathname === item.href} />
             ))}
           </Dropdown>
 
-          {/* Contact */}
-          <Dropdown
-            icon="📞" label="Contact"
-            open={contactOpen} onToggle={() => setContactOpen(o => !o)}
-            active={isContactSection}
-          >
+          <Dropdown icon="📞" label="Contact" open={contactOpen} onToggle={() => setContactOpen(o => !o)} active={isContactSection}>
             {contactPages.map(item => (
               <DropdownLink key={item.href} item={item} active={pathname === item.href} />
             ))}
           </Dropdown>
 
-          {/* Service Pages */}
-          <Dropdown
-            icon="🛠️" label="Service Pages"
-            open={servicesOpen} onToggle={() => setServicesOpen(o => !o)}
-            active={isServiceSection}
-          >
+          <Dropdown icon="🛠️" label="Service Pages" open={servicesOpen} onToggle={() => setServicesOpen(o => !o)} active={isServiceSection}>
             {servicePages.map(item => (
               <DropdownLink key={item.href} item={item} active={pathname === item.href} />
             ))}
           </Dropdown>
 
           <NavLink href="/admin/enquiries" label="Enquiries" icon="✉️" active={pathname === "/admin/enquiries"} />
-
           <NavLink href="/admin/settings" label="Site Settings" icon="⚙️" active={pathname === "/admin/settings"} />
 
         </nav>
@@ -166,12 +181,43 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       </aside>
 
       {/* ── Main ── */}
-      <div style={{ flex: 1, display: "flex", flexDirection: "column", background: "#f5f6fa" }}>
-        <header style={{ background: "#fff", padding: "0 32px", height: 60, display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid #e9ecef", boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}>
-          <h1 style={{ fontSize: 18, fontWeight: 600, color: "#1a1a2e", margin: 0 }}>{pageTitle}</h1>
-          <a href="/" target="_blank" style={{ fontSize: 13, color: "#DB7C37", textDecoration: "none", fontWeight: 500 }}>View Site →</a>
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", background: "#f5f6fa", minWidth: 0 }}>
+
+        {/* Top header */}
+        <header style={{
+          background: "#fff",
+          padding: isMobile ? "0 16px" : "0 32px",
+          height: 60,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          borderBottom: "1px solid #e9ecef",
+          boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
+          position: isMobile ? "sticky" : "relative",
+          top: 0,
+          zIndex: 10,
+        }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            {isMobile && (
+              <button
+                onClick={() => setSidebarOpen(o => !o)}
+                style={{ background: "none", border: "none", fontSize: 22, cursor: "pointer", color: "#1a1a2e", lineHeight: 1, padding: "4px 2px" }}
+              >
+                ☰
+              </button>
+            )}
+            <h1 style={{ fontSize: isMobile ? 15 : 18, fontWeight: 600, color: "#1a1a2e", margin: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: isMobile ? 180 : "none" }}>
+              {pageTitle}
+            </h1>
+          </div>
+          <a href="/" target="_blank" style={{ fontSize: 13, color: "#DB7C37", textDecoration: "none", fontWeight: 500, whiteSpace: "nowrap" }}>
+            {isMobile ? "Site →" : "View Site →"}
+          </a>
         </header>
-        <main style={{ flex: 1, padding: 32, overflowY: "auto" }}>{children}</main>
+
+        <main style={{ flex: 1, padding: isMobile ? 16 : 32, overflowY: "auto" }}>
+          {children}
+        </main>
       </div>
     </div>
   );

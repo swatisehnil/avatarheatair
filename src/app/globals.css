@@ -1,1 +1,96 @@
 /* Global CSS - Original styles loaded via /assets/css/style.css in layout.tsx */
+
+/* ─────────────────────────────────────────────
+   Admin Panel — Mobile Responsive
+   Targets #admin-layout set in layout.tsx
+───────────────────────────────────────────── */
+@media (max-width: 767px) {
+
+  /* Collapse ALL multi-column grids in admin to single column */
+  #admin-layout [style*="grid-template-columns: 1fr 1fr"],
+  #admin-layout [style*="grid-template-columns: 2fr 1fr"],
+  #admin-layout [style*="grid-template-columns: 1fr 2fr"],
+  #admin-layout [style*="grid-template-columns: 1fr 1fr 1fr"],
+  #admin-layout [style*="grid-template-columns: 2fr 1fr 1fr"],
+  #admin-layout [style*="grid-template-columns: 1fr 1fr 2fr"],
+  #admin-layout [style*="grid-template-columns: 1fr 2fr 1fr"],
+  #admin-layout [style*="grid-template-columns: auto 1fr 1fr"],
+  #admin-layout [style*="grid-template-columns: auto 1fr"],
+  #admin-layout [style*="grid-template-columns: 1fr auto"],
+  #admin-layout [style*="grid-template-columns: 1fr 1fr 2fr"],
+  #admin-layout [style*="grid-template-columns: 2fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Max-width on content panels */
+  #admin-layout [style*="max-width: 900"],
+  #admin-layout [style*="max-width: 800"],
+  #admin-layout [style*="max-width: 700"] {
+    max-width: 100% !important;
+  }
+
+  /* Wrap flex rows that use space-between */
+  #admin-layout [style*="justify-content: space-between"] {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Save button full-width on small screens */
+  #admin-layout h2 + div button,
+  #admin-layout h2 ~ div button[style*="background: rgb(219"] {
+    width: 100%;
+  }
+
+  /* ImagePicker empty state: no overflow */
+  #admin-layout [style*="border: 2px dashed"] {
+    min-width: 0;
+  }
+
+  /* Enquiry cards: stack header row */
+  #admin-layout [style*="justify-content: space-between"][style*="align-items: flex-start"] {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Feature cards inner grid: auto 1fr 2fr */
+  #admin-layout [style*="grid-template-columns: auto 1fr 2fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Contact info boxes row */
+  #admin-layout [style*="grid-template-columns: 80px 1fr auto"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Tab filter buttons — allow wrap */
+  #admin-layout [style*="border-radius: 20px"] {
+    flex-wrap: wrap;
+  }
+
+  /* CTA banner 3-col */
+  #admin-layout [style*="grid-template-columns: 2fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Tablet breakpoint */
+@media (max-width: 480px) {
+
+  /* Section card padding */
+  #admin-layout [style*="padding: 22px 24px"] {
+    padding: 14px 14px !important;
+  }
+
+  /* Button rows — allow wrap */
+  #admin-layout [style*="display: flex"][style*="gap: 8"],
+  #admin-layout [style*="display: flex"][style*="gap: 6"] {
+    flex-wrap: wrap;
+  }
+
+  /* Inputs — prevent iOS auto-zoom on focus */
+  #admin-layout input,
+  #admin-layout textarea,
+  #admin-layout select {
+    font-size: 16px !important;
+  }
+}

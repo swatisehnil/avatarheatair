@@ -30,6 +30,7 @@ export interface IServicePage {
   aboutSubtitle:    string;
   aboutHeading:     string;
   aboutParagraphs:  string[];
+  servicesList:     string[];
   aboutImage:       string;
 
   testimonialImage:      string;
@@ -68,6 +69,7 @@ const schema = new Schema<IServicePage>({
   aboutSubtitle:   { type: String, default: 'Designed To Grow Your Business' },
   aboutHeading:    { type: String, default: '' },
   aboutParagraphs: { type: [String], default: [] },
+  servicesList:    { type: [String], default: [] },
   aboutImage:      { type: String, default: '' },
 
   testimonialImage:       { type: String, default: '/assets/img/testimonial/testimonial-img.jpg' },
