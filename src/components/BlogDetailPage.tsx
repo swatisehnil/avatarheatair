@@ -99,7 +99,7 @@ const sysIcons = [
 ];
 
 const CSS = `
-  .bdp-wrap   { max-width:860px; margin:0 auto; padding:56px 40px; font-family:'Segoe UI',Arial,sans-serif; }
+  .bdp-wrap   { max-width:1001px; margin:0 auto; padding:56px 40px; font-family:'Segoe UI',Arial,sans-serif; }
   .bdp-h2     { font-size:clamp(19px,2vw,24px); font-weight:800; color:${NAVY}; margin:28px 0 16px; }
   .bdp-h3     { font-size:clamp(18px,1.8vw,22px); font-weight:800; color:${NAVY}; margin:28px 0 16px; }
   .bdp-p      { font-size:16px; color:#444; line-height:1.9; margin:0 0 14px; }
