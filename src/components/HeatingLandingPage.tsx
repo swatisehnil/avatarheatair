@@ -129,7 +129,7 @@ export default function HeatingLandingPage() {
               Heating Installation &amp;<br />
               Furnace Repair <span style={{ color: ORANGE }}>Near You</span>
             </h1>
-            <p style={{ fontSize: 15, color: "#c8cce0", marginBottom: 22, lineHeight: 1.75 }}>
+            <p style={{ fontSize: 17, color: "#c8cce0", marginBottom: 22, lineHeight: 1.75 }}>
               Affordable heating solutions across Monmouth &amp; Middlesex County, NJ.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: "0 0 30px", display: "flex", flexDirection: "column", gap: 10 }}>
@@ -143,10 +143,10 @@ export default function HeatingLandingPage() {
               ))}
             </ul>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <a href={`tel:${PHONE}`} style={{ display: "inline-flex", alignItems: "center", gap: 8, background: ORANGE, color: "#fff", padding: "13px 24px", borderRadius: 8, fontWeight: 700, fontSize: 15, textDecoration: "none", boxShadow: "0 4px 18px rgba(219,124,55,0.5)" }}>
+              <a href={`tel:${PHONE}`} style={{ display: "inline-flex", alignItems: "center", gap: 8, background: ORANGE, color: "#fff", padding: "13px 24px", borderRadius: 8, fontWeight: 700, fontSize: 17, textDecoration: "none", boxShadow: "0 4px 18px rgba(219,124,55,0.5)" }}>
                 <PhoneIcon color="#fff" size={15} /> {PHONE}
               </a>
-              <a href="/contact" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "transparent", color: "#fff", padding: "13px 24px", borderRadius: 8, fontWeight: 600, fontSize: 15, textDecoration: "none", border: "2px solid rgba(255,255,255,0.4)" }}>
+              <a href="/contact" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "transparent", color: "#fff", padding: "13px 24px", borderRadius: 8, fontWeight: 600, fontSize: 17, textDecoration: "none", border: "2px solid rgba(255,255,255,0.4)" }}>
                 Request Free Quote
               </a>
             </div>
@@ -214,7 +214,7 @@ export default function HeatingLandingPage() {
               Save Money with Our{" "}
               <span style={{ color: ORANGE }}>High-Efficiency</span>{" "}Heating Systems
             </h2>
-            <p style={{ fontSize: 15, color: "#555", lineHeight: 1.85, marginBottom: 32 }}>
+            <p style={{ fontSize: 17, color: "#555", lineHeight: 1.85, marginBottom: 32 }}>
               Our cutting-edge furnaces, heat pumps, and smart thermostats are designed to maximize comfort while minimizing energy use.
             </p>
             <div style={{ display: "flex", gap: 28, flexWrap: "wrap" }}>
@@ -242,7 +242,7 @@ export default function HeatingLandingPage() {
             <p style={{ fontSize: 14, color: "#555", lineHeight: 1.85, marginBottom: 22 }}>
               Start saving today — request a free quote for your energy-efficient heating system, furnace near me.
             </p>
-            <a href="/contact" style={{ display: "block", background: ORANGE, color: "#fff", padding: "14px 18px", borderRadius: 9, fontWeight: 700, fontSize: 15, textDecoration: "none", textAlign: "center", boxShadow: "0 4px 16px rgba(219,124,55,0.38)" }}>
+            <a href="/contact" style={{ display: "block", background: ORANGE, color: "#fff", padding: "14px 18px", borderRadius: 9, fontWeight: 700, fontSize: 17, textDecoration: "none", textAlign: "center", boxShadow: "0 4px 16px rgba(219,124,55,0.38)" }}>
               Get My Free Quote
             </a>
           </div>
@@ -289,7 +289,7 @@ export default function HeatingLandingPage() {
           </div>
           <div>
             <h2 style={{ fontSize: "clamp(20px, 2.5vw, 32px)", fontWeight: 800, color: ORANGE, marginBottom: 8 }}>24/7 Emergency Heating Service</h2>
-            <p style={{ color: "#9aa8c8", fontSize: 15, margin: 0, lineHeight: 1.75 }}>
+            <p style={{ color: "#9aa8c8", fontSize: 17, margin: 0, lineHeight: 1.75 }}>
               When your heating system fails, we're here day or night. Call now for fast emergency service across Monmouth &amp; Middlesex County, NJ.
             </p>
           </div>
@@ -316,7 +316,7 @@ export default function HeatingLandingPage() {
                 onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.border = "1.5px solid #eee"; (e.currentTarget as HTMLDivElement).style.boxShadow = "none"; }}
               >
                 <div style={{ marginBottom: 14 }}>{c.icon}</div>
-                <h4 style={{ fontSize: 15, fontWeight: 700, color: NAVY, marginBottom: 8, lineHeight: 1.35 }}>{c.title}</h4>
+                <h4 style={{ fontSize: 17, fontWeight: 700, color: NAVY, marginBottom: 8, lineHeight: 1.35 }}>{c.title}</h4>
                 <p style={{ fontSize: 13, color: "#666", lineHeight: 1.75, margin: 0 }}>{c.desc}</p>
               </div>
             ))}
@@ -424,13 +424,13 @@ export default function HeatingLandingPage() {
                   <svg width="22" height="18" viewBox="0 0 30 24" fill="#fff"><path d="M0 24V14.4C0 6.4 5.2 1.6 15.6 0l1.8 3.2C12 4.4 9.2 7.2 8.8 11.2H14V24H0zm16 0V14.4C16 6.4 21.2 1.6 31.6 0l1.8 3.2C28 4.4 25.2 7.2 24.8 11.2H30V24H16z" /></svg>
                 </div>
                 <div style={{ background: "#fff", borderRadius: 14, padding: "50px 28px 28px", boxShadow: "0 4px 24px rgba(0,0,0,0.07)" }}>
-                  <p style={{ fontSize: 15, color: "#555", lineHeight: 1.85, margin: "0 0 28px", fontStyle: "italic" }}>"{t.quote}"</p>
+                  <p style={{ fontSize: 17, color: "#555", lineHeight: 1.85, margin: "0 0 28px", fontStyle: "italic" }}>"{t.quote}"</p>
                   <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
                     <div style={{ width: 52, height: 52, borderRadius: "50%", overflow: "hidden", flexShrink: 0, border: "2px solid #eee" }}>
                       <Image src={t.img} alt={t.name} width={52} height={52} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                     </div>
                     <div>
-                      <p style={{ margin: 0, fontWeight: 700, fontSize: 15, color: NAVY }}>{t.name}</p>
+                      <p style={{ margin: 0, fontWeight: 700, fontSize: 17, color: NAVY }}>{t.name}</p>
                       <p style={{ margin: 0, fontSize: 13, color: "#888" }}>{t.role}</p>
                     </div>
                   </div>

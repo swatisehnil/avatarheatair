@@ -115,7 +115,7 @@ export default function PlumbingLandingPage() {
               Expert Plumbing<br />Repair &amp; Installation{" "}
               <span style={{ color: ORANGE }}>Near You</span>
             </h1>
-            <p style={{ fontSize: 15, color: "#c8cce0", marginBottom: 22, lineHeight: 1.75 }}>
+            <p style={{ fontSize: 17, color: "#c8cce0", marginBottom: 22, lineHeight: 1.75 }}>
               Frozen pipes, leak detection, drain cleaning, lack of water pressure, clogs &amp; backflow — we handle it all.
             </p>
             <div style={{ display: "flex", gap: 18, flexWrap: "wrap", marginBottom: 28 }}>
@@ -165,7 +165,7 @@ export default function PlumbingLandingPage() {
                 </div>
                 <div>
                   <h4 style={{ fontSize: 16, fontWeight: 700, color: NAVY, margin: "0 0 7px" }}>{s.title}</h4>
-                  <p style={{ fontSize: 15, color: "#000000", lineHeight: 1.85, margin: 0 }}>{s.desc}</p>
+                  <p style={{ fontSize: 17, color: "#000000", lineHeight: 1.85, margin: 0 }}>{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -210,7 +210,7 @@ export default function PlumbingLandingPage() {
                 {f.icon}
               </div>
               <div>
-                <h4 style={{ fontSize: 15, fontWeight: 700, color: NAVY, margin: "0 0 6px" }}>{f.title}</h4>
+                <h4 style={{ fontSize: 17, fontWeight: 700, color: NAVY, margin: "0 0 6px" }}>{f.title}</h4>
                 <p style={{ fontSize: 13, color: "#666", lineHeight: 1.7, margin: 0 }}>{f.desc}</p>
               </div>
             </div>
@@ -238,7 +238,7 @@ export default function PlumbingLandingPage() {
                       </div>
                     </div>
                     <div style={{ padding: "18px 20px 20px" }}>
-                      <h4 style={{ fontSize: 15, fontWeight: 700, color: NAVY, margin: "0 0 8px" }}>{s.title}</h4>
+                      <h4 style={{ fontSize: 17, fontWeight: 700, color: NAVY, margin: "0 0 8px" }}>{s.title}</h4>
                       <p style={{ fontSize: 13, color: "#666", lineHeight: 1.7, margin: 0 }}>{s.desc}</p>
                     </div>
                   </div>
@@ -341,13 +341,13 @@ export default function PlumbingLandingPage() {
                 </div>
                 {/* Card */}
                 <div style={{ background: "#fff", borderRadius: 14, padding: "50px 28px 28px", boxShadow: "0 4px 24px rgba(0,0,0,0.07)" }}>
-                  <p style={{ fontSize: 15, color: "#555", lineHeight: 1.85, margin: "0 0 28px", fontStyle: "italic" }}>"{t.quote}"</p>
+                  <p style={{ fontSize: 17, color: "#555", lineHeight: 1.85, margin: "0 0 28px", fontStyle: "italic" }}>"{t.quote}"</p>
                   <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
                     <div style={{ width: 52, height: 52, borderRadius: "50%", overflow: "hidden", flexShrink: 0, border: "2px solid #eee" }}>
                       <Image src={t.img} alt={t.name} width={52} height={52} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                     </div>
                     <div>
-                      <p style={{ margin: 0, fontWeight: 700, fontSize: 15, color: NAVY }}>{t.name}</p>
+                      <p style={{ margin: 0, fontWeight: 700, fontSize: 17, color: NAVY }}>{t.name}</p>
                       <p style={{ margin: 0, fontSize: 13, color: "#888" }}>{t.role}</p>
                     </div>
                   </div>

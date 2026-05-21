@@ -100,7 +100,7 @@ export default function AirConditioningLandingPage() {
               Air Conditioning<br />Installation &amp; Repair{" "}
               <span style={{ color: ORANGE }}>Near You</span>
             </h1>
-            <p style={{ fontSize: 15, color: "#c8cce0", marginBottom: 20, lineHeight: 1.75 }}>
+            <p style={{ fontSize: 17, color: "#c8cce0", marginBottom: 20, lineHeight: 1.75 }}>
               Affordable AC services across Monmouth &amp; Middlesex County, NJ.
             </p>
             {/* inline checkmarks */}
@@ -146,7 +146,7 @@ export default function AirConditioningLandingPage() {
             <h2 style={{ fontSize: "clamp(22px, 2.8vw, 36px)", fontWeight: 800, color: NAVY, lineHeight: 1.25, margin: "0 0 16px" }}>
               Air Conditioning Repair &amp;<br />Installation Services
             </h2>
-            <p style={{ fontSize: 15, color: "#555", lineHeight: 1.85, marginBottom: 10 }}>
+            <p style={{ fontSize: 17, color: "#555", lineHeight: 1.85, marginBottom: 10 }}>
               We provide reliable and efficient air conditioning services to keep your home and office cool and comfortable. Whether your AC is not cooling properly or you need a new installation, our expert technicians are here to help.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: "20px 0 0", display: "flex", flexDirection: "column", gap: 14 }}>
@@ -267,7 +267,7 @@ export default function AirConditioningLandingPage() {
               <span style={{ color: ORANGE }}>24 Hour</span>{" "}
               <span style={{ color: "#fff" }}>HVAC Emergency Services</span>
             </h2>
-            <p style={{ color: "#9aa8c8", fontSize: 15, margin: 0, lineHeight: 1.75 }}>
+            <p style={{ color: "#9aa8c8", fontSize: 17, margin: 0, lineHeight: 1.75 }}>
               Help when you need it most! Our emergency AC repair technicians are available 24/7.
             </p>
           </div>
@@ -319,13 +319,13 @@ export default function AirConditioningLandingPage() {
                   <svg width="22" height="18" viewBox="0 0 30 24" fill="#fff"><path d="M0 24V14.4C0 6.4 5.2 1.6 15.6 0l1.8 3.2C12 4.4 9.2 7.2 8.8 11.2H14V24H0zm16 0V14.4C16 6.4 21.2 1.6 31.6 0l1.8 3.2C28 4.4 25.2 7.2 24.8 11.2H30V24H16z" /></svg>
                 </div>
                 <div style={{ background: "#fff", borderRadius: 14, padding: "50px 28px 28px", boxShadow: "0 4px 24px rgba(0,0,0,0.07)" }}>
-                  <p style={{ fontSize: 15, color: "#555", lineHeight: 1.85, margin: "0 0 28px", fontStyle: "italic" }}>"{t.quote}"</p>
+                  <p style={{ fontSize: 17, color: "#555", lineHeight: 1.85, margin: "0 0 28px", fontStyle: "italic" }}>"{t.quote}"</p>
                   <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
                     <div style={{ width: 52, height: 52, borderRadius: "50%", overflow: "hidden", flexShrink: 0, border: "2px solid #eee" }}>
                       <Image src={t.img} alt={t.name} width={52} height={52} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                     </div>
                     <div>
-                      <p style={{ margin: 0, fontWeight: 700, fontSize: 15, color: NAVY }}>{t.name}</p>
+                      <p style={{ margin: 0, fontWeight: 700, fontSize: 17, color: NAVY }}>{t.name}</p>
                       <p style={{ margin: 0, fontSize: 13, color: "#888" }}>{t.role}</p>
                     </div>
                   </div>
