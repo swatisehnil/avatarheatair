@@ -102,7 +102,7 @@ const CSS = `
   .bdp-wrap   { max-width:1001px; margin:0 auto; padding:56px 40px; font-family:'Segoe UI',Arial,sans-serif; }
   .bdp-h2     { font-size:clamp(19px,2vw,24px); font-weight:800; color:${NAVY}; margin:28px 0 16px; }
   .bdp-h3     { font-size:clamp(18px,1.8vw,22px); font-weight:800; color:${NAVY}; margin:28px 0 16px; }
-  .bdp-p      { font-size:16px; color:#444; line-height:1.9; margin:0 0 14px; }
+  .bdp-p      { font-size:18px; color:#444; line-height:1.9; margin:0 0 14px; }
   .bdp-sys    { display:flex; gap:16px; align-items:flex-start; padding:16px 0; border-bottom:1px solid #f0f0f0; }
   @media(max-width:1023px){ .bdp-wrap{ grid-template-columns:1fr; padding:40px 24px; gap:36px; } }
   @media(max-width:767px) { .bdp-wrap{ padding:28px 16px; } }
@@ -140,7 +140,7 @@ export default function BlogDetailPage() {
           <p className="bdp-p">The first step in choosing the right heating system.</p>
           <ul style={{ listStyle:"none", padding:0, margin:"0 0 24px", display:"flex", flexDirection:"column", gap:10 }}>
             {introBullets.map((b,i)=>(
-              <li key={i} style={{ display:"flex", gap:10, fontSize:15, color:"#444", lineHeight:1.75 }}>
+              <li key={i} style={{ display:"flex", gap:10, fontSize:18, color:"#444", lineHeight:1.75 }}>
                 <span style={{ width:8, height:8, background:ORANGE, borderRadius:"50%", flexShrink:0, marginTop:7 }} />
                 <span><strong style={{ color:NAVY }}>{b.t}</strong> {b.d}</span>
               </li>
@@ -151,7 +151,7 @@ export default function BlogDetailPage() {
           <div style={{ background:"#fff8f2", border:`2px solid ${ORANGE}`, borderRadius:10, padding:"20px 22px", display:"flex", gap:14, alignItems:"flex-start", margin:"0 0 28px" }}>
             <div style={{ fontSize:38, color:ORANGE, lineHeight:1, fontFamily:"Georgia,serif", flexShrink:0, marginTop:-4 }}>"</div>
             <div>
-              <p style={{ fontSize:15, color:"#444", lineHeight:1.8, margin:"0 0 10px", fontStyle:"italic" }}>
+              <p style={{ fontSize:18, color:"#444", lineHeight:1.8, margin:"0 0 10px", fontStyle:"italic" }}>
                 Our certified technicians at Avatar Home Service offer free energy audits to assess your home's heating needs and recommend the most efficient system. Contact us for a consultation!
               </p>
               <p style={{ margin:0, fontSize:13, fontWeight:700, color:NAVY }}>— Avatar Home Service Team</p>
@@ -167,7 +167,7 @@ export default function BlogDetailPage() {
                 { t:"For colder climates:", d:"Middletown Twp, choose energy-efficient furnaces or heat pumps built for low energy bills." },
                 { t:"Insulation:", d:"standrm bmp are a great fit." },
               ].map((item,i)=>(
-                <li key={i} style={{ display:"flex", gap:10, fontSize:15, color:"#444", lineHeight:1.7 }}>
+                <li key={i} style={{ display:"flex", gap:10, fontSize:18, color:"#444", lineHeight:1.7 }}>
                   <span style={{ width:7, height:7, background:ORANGE, borderRadius:"50%", flexShrink:0, marginTop:6 }} />
                   <span><strong style={{ color:NAVY }}>{item.t}</strong> {item.d}</span>
                 </li>
@@ -194,7 +194,7 @@ export default function BlogDetailPage() {
                   <h5 style={{ fontSize:16, fontWeight:700, color:NAVY, margin:"0 0 8px" }}>{s.title}</h5>
                   <ul style={{ listStyle:"none", padding:0, margin:0, display:"flex", flexDirection:"column", gap:3 }}>
                     {s.bullets.map((b,j)=>(
-                      <li key={j} style={{ fontSize:15, color:"#444", lineHeight:1.65 }}>
+                      <li key={j} style={{ fontSize:18, color:"#444", lineHeight:1.65 }}>
                         <strong style={{ color:NAVY }}>{b.l}</strong> {b.d}
                       </li>
                     ))}
@@ -224,10 +224,10 @@ export default function BlogDetailPage() {
             Don't buy heating or air conditioning without our free estimate. You have thousands of dollars and valuable time to gain and absolutely nothing to lose by calling now at {PHONE}.
           </p>
           <div style={{ border:`1.5px solid ${ORANGE}`, borderRadius:10, padding:"14px 18px", marginBottom:28, background:"#fff8f2" }}>
-            <p style={{ margin:"0 0 4px", fontSize:15, color:"#444", lineHeight:1.7 }}>
+            <p style={{ margin:"0 0 4px", fontSize:18, color:"#444", lineHeight:1.7 }}>
               <strong style={{ color:NAVY }}>Serving:</strong> Monmouth, Middlesex County and surrounding counties in New Jersey.
             </p>
-            <p style={{ margin:0, fontSize:15, color:"#444", lineHeight:1.7 }}>
+            <p style={{ margin:0, fontSize:18, color:"#444", lineHeight:1.7 }}>
               <strong style={{ color:NAVY }}>Towns:</strong> Middletown Twp, Holmdel, Marlboro, Manalapan, Union Beach, Keyport.
             </p>
           </div>
@@ -239,7 +239,7 @@ export default function BlogDetailPage() {
               {signs.map((s,i)=>(
                 <div key={i} style={{ display:"flex", gap:12, alignItems:"flex-start" }}>
                   <div style={{ width:26, height:26, background:ORANGE, borderRadius:"50%", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, fontWeight:800, fontSize:12, color:"#fff" }}>{s.n}</div>
-                  <p style={{ margin:0, fontSize:15, color:"#444", lineHeight:1.7 }}>
+                  <p style={{ margin:0, fontSize:18, color:"#444", lineHeight:1.7 }}>
                     <strong style={{ color:NAVY }}>{s.t}</strong><br />{s.d}
                   </p>
                 </div>
@@ -287,12 +287,12 @@ export default function BlogDetailPage() {
                 <div style={{ flex:1 }}>
                   <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:5 }}>
                     <div>
-                      <p style={{ margin:"0 0 2px", fontWeight:700, fontSize:15, color:NAVY }}>{c.name}</p>
+                      <p style={{ margin:"0 0 2px", fontWeight:700, fontSize:18, color:NAVY }}>{c.name}</p>
                       <p style={{ margin:0, fontSize:11, color:"#888" }}>{c.date}</p>
                     </div>
                     <a href="#" style={{ background:NAVY, color:"#fff", padding:"5px 14px", borderRadius:6, fontSize:11, fontWeight:600, textDecoration:"none" }}>Reply</a>
                   </div>
-                  <p style={{ margin:0, fontSize:15, color:"#555", lineHeight:1.75 }}>{c.text}</p>
+                  <p style={{ margin:0, fontSize:18, color:"#555", lineHeight:1.75 }}>{c.text}</p>
                 </div>
               </div>
             ))}
@@ -304,14 +304,14 @@ export default function BlogDetailPage() {
             <form onSubmit={e=>e.preventDefault()}>
               <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:14, marginBottom:14 }}>
                 <input value={form.name} onChange={e=>setForm({...form,name:e.target.value})} placeholder="Name"
-                  style={{ border:"1.5px solid #e0e0e0", borderRadius:7, padding:"11px 14px", fontSize:15, outline:"none" }} />
+                  style={{ border:"1.5px solid #e0e0e0", borderRadius:7, padding:"11px 14px", fontSize:16, outline:"none" }} />
                 <input value={form.email} onChange={e=>setForm({...form,email:e.target.value})} placeholder="Email" type="email"
-                  style={{ border:"1.5px solid #e0e0e0", borderRadius:7, padding:"11px 14px", fontSize:15, outline:"none" }} />
+                  style={{ border:"1.5px solid #e0e0e0", borderRadius:7, padding:"11px 14px", fontSize:16, outline:"none" }} />
               </div>
               <input value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})} placeholder="Phone"
-                style={{ border:"1.5px solid #e0e0e0", borderRadius:7, padding:"11px 14px", fontSize:15, outline:"none", width:"100%", marginBottom:14, display:"block", boxSizing:"border-box" }} />
+                style={{ border:"1.5px solid #e0e0e0", borderRadius:7, padding:"11px 14px", fontSize:16, outline:"none", width:"100%", marginBottom:14, display:"block", boxSizing:"border-box" }} />
               <textarea value={form.message} onChange={e=>setForm({...form,message:e.target.value})} placeholder="Write a Comment" rows={5}
-                style={{ border:"1.5px solid #e0e0e0", borderRadius:7, padding:"11px 14px", fontSize:15, outline:"none", width:"100%", resize:"vertical", marginBottom:16, display:"block", boxSizing:"border-box" }} />
+                style={{ border:"1.5px solid #e0e0e0", borderRadius:7, padding:"11px 14px", fontSize:16, outline:"none", width:"100%", resize:"vertical", marginBottom:16, display:"block", boxSizing:"border-box" }} />
               <button type="submit" style={{ background:ORANGE, color:"#fff", padding:"12px 30px", borderRadius:7, fontWeight:700, fontSize:14, border:"none", cursor:"pointer", boxShadow:"0 4px 14px rgba(219,124,55,0.38)" }}>
                 Post Comment
               </button>
